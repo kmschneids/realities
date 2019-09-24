@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>drawing test</title>
+	<script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+	<script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script> 
+	<script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script> 
+</head>
+<body>
+	<a-scene>
+		<a-asset>
+			<img id="snowflake" src="snowflake.JPG">
+		</a-asset>
+		<!-- <a-entity id="camera" camera="userHeight: 1.6" look-controls cursor="rayOrigin: mouse"></a-entity> -->
+		<a-camera><a-cursor color="red" cursor="rayOrigin:mouse"></a-cursor></a-camera>
+
+
+		<!-- <a-entity environment="preset:forest;"></a-entity> -->
+
+		<a-box material="opacity:.1" color="black" width="10" height="10" depth="10" position="0 15 -20" rotation="-50 -50" 
+			event-set__enter="_event:mouseenter; material.src:#snowflake; opacity:1; color:white;"
+			 event-set__leave="_event:mouseleave; color:black;"
+		>
+			<a-animation attribute="rotation"
+               dur="3000"
+               fill="forwards"
+               to="0 360 0"
+               direction="alternate"
+               begin="mouseenter"></a-animation>
+		</a-box>
+	</a-scene>
+
+</body>
+</html>
