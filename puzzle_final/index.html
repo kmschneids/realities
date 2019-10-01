@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>puzzle trick</title>
+	<script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+	<script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script> 
+	<script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script> 
+</head>
+<body>
+	<a-scene>
+		<a-assets timeout="10000">
+			<a-asset-item id="edge-bottom-one" src="puzzle_peices/zero_row/edge_bottom_1.obj"></a-asset-item>
+			<a-asset-item id="edge-bottom-two" src="puzzle_peices/zero_row/edge_bottom_2.obj"></a-asset-item>
+			<a-asset-item id="edge-bottom-three" src="puzzle_peices/zero_row/edge_bottom_3.obj"></a-asset-item>
+			<a-asset-item id="edge-bottom-four" src="puzzle_peices/zero_row/edge_bottom_4.obj"></a-asset-item>
+			<a-asset-item id="edge-bottom-five" src="puzzle_peices/zero_row/edge_bottom_5.obj"></a-asset-item>
+			<a-asset-item id="edge-bottom-six" src="puzzle_peices/zero_row/edge_bottom_6.obj"></a-asset-item>
+			<a-asset-item id="edge-bottom-seven" src="puzzle_peices/zero_row/edge_bottom_7.obj"></a-asset-item>
+			<a-asset-item id="edge-bottom-eight" src="puzzle_peices/zero_row/edge_bottom_8.obj"></a-asset-item>
+			<a-asset-item id="edge-bottom-nine" src="puzzle_peices/zero_row/edge_bottom_9.obj"></a-asset-item>
+			<a-asset-item id="edge-bottom-ten" src="puzzle_peices/zero_row/edge_bottom_10.obj"></a-asset-item>
+			<a-asset-item id="edge-bottom-eleven" src="puzzle_peices/zero_row/edge_bottom_11.obj"></a-asset-item>
+			<a-asset-item id="edge-bottom-twelve" src="puzzle_peices/zero_row/edge_bottom_12.obj"></a-asset-item>
+			<a-asset-item id="edge-bottom-13" src="puzzle_peices/zero_row/edge_bottom_13.obj"></a-asset-item>
+			<a-asset-item id="edge-bottom-14" src="puzzle_peices/zero_row/edge_bottom_14.obj"></a-asset-item>
+			<a-asset-item id="edge-bottom-15" src="puzzle_peices/zero_row/edge_bottom_15.obj"></a-asset-item>
+			<a-asset-item id="edge-bottom-16" src="puzzle_peices/zero_row/edge_bottom_16.obj"></a-asset-item>
+			<a-asset-item id="edge-bottom-17" src="puzzle_peices/zero_row/edge_bottom_17.obj"></a-asset-item>
+			<a-asset-item id="edge-bottom-18" src="puzzle_peices/zero_row/edge_bottom_18.obj"></a-asset-item>
+			<a-asset-item id="edge-bottom-19" src="puzzle_peices/zero_row/edge_bottom_19.obj"></a-asset-item>
+			<a-asset-item id="edge-bottom-20" src="puzzle_peices/zero_row/edge_bottom_20.obj"></a-asset-item>
+			<a-asset-item id="edge-bottom-21" src="puzzle_peices/zero_row/edge_bottom_21.obj"></a-asset-item>
+			<a-asset-item id="edge-bottom-22" src="puzzle_peices/zero_row/edge_bottom_22.obj"></a-asset-item>
+			<a-asset-item id="edge-bottom-23" src="puzzle_peices/zero_row/edge_bottom_23.obj"></a-asset-item>
+
+			<a-asset-item id="row-one-1" src="puzzle_peices/one_row/row_1_1.obj"></a-asset-item>
+			<a-asset-item id="row-one-2" src="puzzle_peices/one_row/row_1_2.obj"></a-asset-item>
+			<a-asset-item id="row-one-3" src="puzzle_peices/one_row/rowone_3.obj"></a-asset-item>
+			<a-asset-item id="row-one-4" src="puzzle_peices/one_row/rowone_4.obj"></a-asset-item>
+			<a-asset-item id="row-one-5" src="puzzle_peices/one_row/rowone_5.obj"></a-asset-item>
+			<a-asset-item id="row-one-6" src="puzzle_peices/one_row/rowone_6.obj"></a-asset-item>
+			<a-asset-item id="row-one-7" src="puzzle_peices/one_row/rowone_7.obj"></a-asset-item>
+			<a-asset-item id="row-one-8" src="puzzle_peices/one_row/rowone_8.obj"></a-asset-item>
+			<a-asset-item id="row-one-9" src="puzzle_peices/one_row/rowone_9.obj"></a-asset-item>
+			<a-asset-item id="row-one-10" src="puzzle_peices/one_row/rowone_10.obj"></a-asset-item>
+			<a-asset-item id="row-one-11" src="puzzle_peices/one_row/rowone_11.obj"></a-asset-item>
+			<a-asset-item id="row-one-12" src="puzzle_peices/one_row/rowone_12.obj"></a-asset-item>
+			<a-asset-item id="row-one-13" src="puzzle_peices/one_row/rowone_13.obj"></a-asset-item>
+			<a-asset-item id="row-one-14" src="puzzle_peices/one_row/rowone_14.obj"></a-asset-item>
+			<a-asset-item id="row-one-15" src="puzzle_peices/one_row/rowone_15.obj"></a-asset-item>
+			<a-asset-item id="row-one-16" src="puzzle_peices/one_row/rowone_16.obj"></a-asset-item>
+			<a-asset-item id="row-one-17" src="puzzle_peices/one_row/rowone_17.obj"></a-asset-item>
+			<a-asset-item id="row-one-18" src="puzzle_peices/one_row/rowone_18.obj"></a-asset-item>
+			<a-asset-item id="row-one-19" src="puzzle_peices/one_row/rowone_19.obj"></a-asset-item>
+			<a-asset-item id="row-one-20" src="puzzle_peices/one_row/rowone_20.obj"></a-asset-item>
+			<a-asset-item id="row-one-21" src="puzzle_peices/one_row/rowone_21.obj"></a-asset-item>
+
+		</a-assets>
+
+		<!-- <a-entity environment="preset:;"></a-entity>
+ -->
+		<a-box color="red" position="0 10 -10" width="5" height="5">
+			<a-animation attribute="rotation"
+               dur="3000"
+               fill="forwards"
+               to="0 180 0"
+               direction="alternate"
+               begin="mouseenter"></a-animation>
+		</a-box>
+		<a-camera><a-cursor color="red" cursor="rayOrigin:mouse"></a-cursor></a-camera>
+
+		<a-obj-model src="#edge-bottom-one" position="0 1 -2" color="red" opacity=".2" 
+			event-set__enter="_event:mouseenter; opacity:1;"
+			 event-set__leave="_event:mouseleave; opacity:.2"></a-obj-model>
+		<a-obj-model src="#edge-bottom-two" position="0 1 -2" color="blue" opacity=".2" >
+			<a-animation attribute="rotation"
+               dur="3000"
+               fill="forwards"
+               to="0 360 0"
+               direction="alternate"
+               begin="mouseenter"></a-animation>
+		</a-obj-model>
+		<a-obj-model src="#edge-bottom-three" position="0 1 -2" color="grey" opacity=".2" >
+			<a-animation attribute="rotation"
+               dur="3000"
+               fill="forwards"
+               to="0 360 0"
+               direction="alternate"
+               begin="mouseenter"></a-animation>
+		</a-obj-model>
+		<a-obj-model src="#edge-bottom-four" position="0 1 -2" color="green" opacity=".2" >
+			<a-animation attribute="rotation"
+               dur="3000"
+               fill="forwards"
+               to="0 360 0"
+               direction="alternate"
+               begin="mouseenter"></a-animation>
+		</a-obj-model>
+		<a-obj-model src="#edge-bottom-five" position="0 1 -2" color="green" opacity=".2" ></a-obj-model>
+		<a-obj-model src="#edge-bottom-six" position="0 1 -2" color="green" opacity=".2" ></a-obj-model>
+		<a-obj-model src="#edge-bottom-seven" position="0 1 -2" color="green" opacity=".2" ></a-obj-model>
+		<a-obj-model src="#edge-bottom-eight" position="0 1 -2" color="green" opacity=".2" ></a-obj-model>
+		<a-obj-model src="#edge-bottom-nine" position="0 1 -2" color="green" opacity=".2" ></a-obj-model>
+		<a-obj-model src="#edge-bottom-ten" position="0 1 -2" color="green" opacity=".2" ></a-obj-model>
+		<a-obj-model src="#edge-bottom-eleven" position="0 1 -2" color="green" opacity=".2" ></a-obj-model>
+		<a-obj-model src="#edge-bottom-twelve" position="0 1 -2" color="green" opacity=".2" ></a-obj-model>
+		<a-obj-model src="#edge-bottom-13" position="0 1 -2" color="green" opacity=".2" ></a-obj-model>
+		<a-obj-model src="#edge-bottom-14" position="0 1 -2" color="green" opacity=".2" ></a-obj-model>
+		<a-obj-model src="#edge-bottom-15" position="0 1 -2" color="green" opacity=".2" ></a-obj-model>
+		<a-obj-model src="#edge-bottom-16" position="0 1 -2" color="green" opacity=".2" ></a-obj-model>
+		<a-obj-model src="#edge-bottom-17" position="0 1 -2" color="green" opacity=".2" ></a-obj-model>
+		<a-obj-model src="#edge-bottom-18" position="0 1 -2" color="green" opacity=".2" ></a-obj-model>
+		<a-obj-model src="#edge-bottom-20" position="0 1 -2" color="green" opacity=".2" ></a-obj-model>
+		<a-obj-model src="#edge-bottom-21" position="0 1 -2" color="green" opacity=".2" ></a-obj-model>
+		<a-obj-model src="#edge-bottom-22" position="0 1 -2" color="green" opacity=".2" ></a-obj-model>
+		<a-obj-model src="#edge-bottom-23" position="0 1 -2" color="green" opacity=".2" ></a-obj-model>
+
+		<a-obj-model src="#row-one-1" position="0 1 -2" color="blue" opacity=".2" ></a-obj-model>
+		<a-obj-model src="#row-one-2" position="0 1 -2" color="blue" opacity=".2" ></a-obj-model>
+		<a-obj-model src="#row-one-3" position="0 1 -2" color="blue" opacity=".2" ></a-obj-model>
+		<a-obj-model src="#row-one-4" position="0 1 -2" color="blue" opacity=".2" ></a-obj-model>
+		<a-obj-model src="#row-one-5" position="0 1 -2" color="blue" opacity=".2" ></a-obj-model>
+		<a-obj-model src="#row-one-6" position="0 1 -2" color="blue" opacity=".2" ></a-obj-model>
+		<a-obj-model src="#row-one-7" position="0 1 -2" color="blue" opacity=".2" ></a-obj-model>
+		<a-obj-model src="#row-one-8" position="0 1 -2" color="blue" opacity=".2" ></a-obj-model>
+		<a-obj-model src="#row-one-9" position="0 1 -2" color="blue" opacity=".2" ></a-obj-model>
+		<a-obj-model src="#row-one-10" position="0 1 -2" color="blue" opacity=".2" ></a-obj-model>
+		<a-obj-model src="#row-one-11" position="0 1 -2" color="blue" opacity=".2" ></a-obj-model>
+		<a-obj-model src="#row-one-12" position="0 1 -2" color="blue" opacity=".2" ></a-obj-model>
+		<a-obj-model src="#row-one-13" position="0 1 -2" color="blue" opacity=".2" ></a-obj-model>
+		<a-obj-model src="#row-one-14" position="0 1 -2" color="blue" opacity=".2" ></a-obj-model>
+		<a-obj-model src="#row-one-15" position="0 1 -2" color="blue" opacity=".2" ></a-obj-model>
+		<a-obj-model src="#row-one-16" position="0 1 -2" color="blue" opacity=".2" ></a-obj-model>
+		<a-obj-model src="#row-one-17" position="0 1 -2" color="blue" opacity=".2" ></a-obj-model>
+		<a-obj-model src="#row-one-18" position="0 1 -2" color="blue" opacity=".2" ></a-obj-model>
+		<a-obj-model src="#row-one-19" position="0 1 -2" color="blue" opacity=".2" ></a-obj-model>
+		<a-obj-model src="#row-one-21" position="0 1 -2" color="blue" opacity=".2" ></a-obj-model>
+
+		<a-obj-model src="#row-one-19" position="0 1 -2" color="blue" opacity=".2" ></a-obj-model>
+		<a-obj-model src="#row-one-21" position="0 1 -2" color="blue" opacity=".2" ></a-obj-model>
+
+
+
+
+
+	</a-scene>
+
+</body>
+</html>
