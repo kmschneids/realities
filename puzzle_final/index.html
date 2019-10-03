@@ -5,6 +5,7 @@
 	<script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
 	<script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script> 
 	<script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script> 
+	<script src="https://unpkg.com/aframe-animation-component@^4.1.2/dist/aframe-animation-component.min.js"></script>
 </head>
 <body>
 	<a-scene>
@@ -56,246 +57,375 @@
 			<a-asset-item id="row-one-23" src="puzzle_peices/one_row/rowone_23.obj"></a-asset-item>
 			<a-asset-item id="row-one-24" src="puzzle_peices/one_row/rowone_24.obj"></a-asset-item>
 
-			<!-- <a-mixin id="flip" animation="property:rotation; dur: 3000; to: 0 360 0; dir: alternate; startEvents: mouseenter;"></a-mixin> -->
+			<a-asset-item id="row-two-1" src="puzzle_peices/2nd_row/1.obj"></a-asset-item>
+			<a-asset-item id="row-two-2" src="puzzle_peices/2nd_row/2.obj"></a-asset-item>
+			<a-asset-item id="row-two-3" src="puzzle_peices/2nd_row/3.obj"></a-asset-item>
+			<a-asset-item id="row-two-4" src="puzzle_peices/2nd_row/4.obj"></a-asset-item>
+			<a-asset-item id="row-two-5" src="puzzle_peices/2nd_row/5.obj"></a-asset-item>
+			<a-asset-item id="row-two-6" src="puzzle_peices/2nd_row/6.obj"></a-asset-item>
+			<a-asset-item id="row-two-7" src="puzzle_peices/2nd_row/7.obj"></a-asset-item>
+			<a-asset-item id="row-two-8" src="puzzle_peices/2nd_row/8.obj"></a-asset-item>
+			<a-asset-item id="row-two-9" src="puzzle_peices/2nd_row/9.obj"></a-asset-item>
+			<a-asset-item id="row-two-10" src="puzzle_peices/2nd_row/10.obj"></a-asset-item>
+			<a-asset-item id="row-two-11" src="puzzle_peices/2nd_row/11.obj"></a-asset-item>
+			<a-asset-item id="row-two-12" src="puzzle_peices/2nd_row/12.obj"></a-asset-item>
+			<a-asset-item id="row-two-13" src="puzzle_peices/2nd_row/13.obj"></a-asset-item>
+			<a-asset-item id="row-two-14" src="puzzle_peices/2nd_row/14.obj"></a-asset-item>
+			<a-asset-item id="row-two-15" src="puzzle_peices/2nd_row/15.obj"></a-asset-item>
+			<a-asset-item id="row-two-16" src="puzzle_peices/2nd_row/16.obj"></a-asset-item>
+			<a-asset-item id="row-two-17" src="puzzle_peices/2nd_row/17.obj"></a-asset-item>
+			<a-asset-item id="row-two-18" src="puzzle_peices/2nd_row/18.obj"></a-asset-item>
+			<a-asset-item id="row-two-19" src="puzzle_peices/2nd_row/19.obj"></a-asset-item>
+			<a-asset-item id="row-two-20" src="puzzle_peices/2nd_row/20.obj"></a-asset-item>
+			<a-asset-item id="row-two-21" src="puzzle_peices/2nd_row/21.obj"></a-asset-item>
+			<a-asset-item id="row-two-22" src="puzzle_peices/2nd_row/22.obj"></a-asset-item>
+
+			<img id="eye-1" src="eyes/eye_4_upper.jpg">
+			<img id="eye-2" src="eyes/eye_1_upper_left.jpg">
+
+			<a-mixin id="fade-2" animation__fade="property:opacity; to: 1; dur:1000;"></a-mixin>
+
 		</a-assets>
 		
-
-		<a-entity environment="preset:forest; playArea: 2;"></a-entity>
-		<a-box color="red" position="0 10 -10" width="5" height="5">
-			<a-animation attribute="rotation"
-               dur="3000"
-               fill="forwards"
-               to="0 180 0"
-               direction="alternate"
-               begin="mouseenter"></a-animation>
-		</a-box>
-		<!-- <a-camera rotation="0 180 0"><a-cursor color="red" cursor="rayOrigin:mouse"></a-cursor></a-camera> -->
+		<a-entity id="environment" environment="skyType:atmosphere; skyColor:#00061c; horizonColor:#011047; fog:.1; groundTexture:walkernoise; groundColor:#0a5701; groundColor2:#063b00; dressing:trees; dressingAmount:500; dressingScale:3; dressingColor:#008f79; playArea:3; lightPosition:0 .1 -.5;">
+			<a-light id="light" type="point" intensity=".2"></a-light>
+		</a-entity>
 
 		<a-entity>
-			<a-camera rotation="0 180 0"><a-entity id="cursor" color="red" cursor="rayOrigin:cursor; fuse:false; fuseTimeout: 500" position="0 0 -1" geometry="primitive:ring; radiusInner: 0.01; radiusOuter: 0.015" material="color:blue;"></a-entity>
+			<a-camera rotation="0 350 0"><a-entity id="cursor" color="red" cursor="rayOrigin:cursor; fuse:false; fuseTimeout: 500" position="0 0 -1" geometry="primitive:ring; radiusInner: 0.01; radiusOuter: 0.015" material="color:#f6ffa3;"></a-entity>
 		</a-entity>
 		
 
 <!-- BOTTOM ROW -->
 		<a-entity>
-			<a-obj-model src="#edge-bottom-one" position="0 1 -2" opacity=".2" color="red"></a-obj-model>
+			<a-obj-model src="#edge-bottom-one" position="0 1 -2" opacity=".1" color="black" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;"></a-obj-model>
 			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
 		</a-entity>
 		
 		<a-entity>
-			<a-obj-model src="#edge-bottom-two" position="0 1 -2" rotation="0 0 0" color="blue" opacity=".2" ></a-obj-model>
+			<a-obj-model src="#edge-bottom-two" position="0 1 -2" rotation="0 0 0" color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;"></a-obj-model>
 			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
 		</a-entity>
 		
 		<a-entity>
-			<a-obj-model src="#edge-bottom-three" position="0 1 -2"  color="grey" opacity=".2" ></a-obj-model>
+			<a-obj-model src="#edge-bottom-three" position="0 1 -2"  color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;"></a-obj-model>
 			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
 		</a-entity>
 
 		<a-entity>
-			<a-obj-model src="#edge-bottom-four" position="0 1 -2" color="green" opacity=".2" ></a-obj-model>
+			<a-obj-model src="#edge-bottom-four" position="0 1 -2" color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;"></a-obj-model>
 			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
 		</a-entity>
 		
 		<a-entity>
-			<a-obj-model src="#edge-bottom-five" position="0 1 -2" color="green" opacity=".2"></a-obj-model>
+			<a-obj-model src="#edge-bottom-five" position="0 1 -2" color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;"></a-obj-model>
 			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
 		</a-entity>
 
 		<a-entity>
-			<a-obj-model src="#edge-bottom-six" position="0 1 -2" color="green" opacity=".2" ></a-obj-model>
+			<a-obj-model src="#edge-bottom-six" position="0 1 -2" color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;" ></a-obj-model>
 			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
 		</a-entity>
 
 		<a-entity>
-			<a-obj-model src="#edge-bottom-seven" position="0 1 -2" color="green" opacity=".2" ></a-obj-model>
+			<a-obj-model src="#edge-bottom-seven" position="0 1 -2" color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;" ></a-obj-model>
 			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
 		</a-entity>
 			
 		<a-entity>
-			<a-obj-model src="#edge-bottom-eight" position="0 1 -2" color="green" opacity=".2" ></a-obj-model>
+			<a-obj-model src="#edge-bottom-eight" position="0 1 -2" color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;" ></a-obj-model>
 			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
 		</a-entity>
 
 		<a-entity>
-			<a-obj-model src="#edge-bottom-nine" position="0 1 -2" color="green" opacity=".2" ></a-obj-model>
+			<a-obj-model src="#edge-bottom-nine" position="0 1 -2" color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;" ></a-obj-model>
 			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
 		</a-entity>
 
 		<a-entity>
-			<a-obj-model src="#edge-bottom-ten" position="0 1 -2" color="black" opacity=".2" ></a-obj-model>
+			<a-obj-model src="#edge-bottom-ten" position="0 1 -2" color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;" ></a-obj-model>
 			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
 		</a-entity>
 
 		<a-entity>
-			<a-obj-model src="#edge-bottom-eleven" position="0 1 -2" color="green" opacity=".2"></a-obj-model>
+			<a-obj-model src="#edge-bottom-eleven" position="0 1 -2" color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;"></a-obj-model>
 			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
 		</a-entity>
 
 		<a-entity>
-			<a-obj-model src="#edge-bottom-twelve" position="0 1 -2" color="green" opacity=".2" ></a-obj-model>
+			<a-obj-model src="#edge-bottom-twelve" position="0 1 -2" color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;" ></a-obj-model>
 			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
 		</a-entity>
 
 		<a-entity>
-			<a-obj-model src="#edge-bottom-13" position="0 1 -2" color="green" opacity=".2" ></a-obj-model>
+			<a-obj-model src="#edge-bottom-13" position="0 1 -2" color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;" ></a-obj-model>
 			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
 		</a-entity>
 
 		<a-entity>
-			<a-obj-model src="#edge-bottom-14" position="0 1 -2" color="green" opacity=".2" ></a-obj-model>
+			<a-obj-model src="#edge-bottom-14" position="0 1 -2" color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;" ></a-obj-model>
 			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
 		</a-entity>
 
 		<a-entity>
-			<a-obj-model src="#edge-bottom-15" position="0 1 -2" color="green" opacity=".2" ></a-obj-model>
+			<a-obj-model src="#edge-bottom-15" position="0 1 -2" color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;" ></a-obj-model>
 			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
 		</a-entity>
 
 		<a-entity>
-			<a-obj-model src="#edge-bottom-16" position="0 1 -2" color="green" opacity=".2" ></a-obj-model>
+			<a-obj-model src="#edge-bottom-16" position="0 1 -2" color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;" ></a-obj-model>
 			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
 		</a-entity>
 
 		<a-entity>
-			<a-obj-model src="#edge-bottom-17" position="0 1 -2" color="green" opacity=".2" ></a-obj-model>
+			<a-obj-model src="#edge-bottom-17" position="0 1 -2" color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;" ></a-obj-model>
 			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
 		</a-entity>
 
 		<a-entity>
-			<a-obj-model src="#edge-bottom-18" position="0 1 -2" color="green" opacity=".2" ></a-obj-model>
+			<a-obj-model src="#edge-bottom-18" position="0 1 -2" color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;" ></a-obj-model>
 			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
 		</a-entity>
 
 		<a-entity>
-			<a-obj-model src="#edge-bottom-20" position="0 1 -2" color="green" opacity=".2" ></a-obj-model>
+			<a-obj-model src="#edge-bottom-20" position="0 1 -2" color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;" ></a-obj-model>
 			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
 		</a-entity>
 
 		<a-entity>
-			<a-obj-model src="#edge-bottom-21" position="0 1 -2" color="black" opacity=".2" ></a-obj-model>
+			<a-obj-model src="#edge-bottom-21" position="0 1 -2" color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;" ></a-obj-model>
 			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
 		</a-entity>
 
 		<a-entity>
-			<a-obj-model src="#edge-bottom-22" position="0 1 -2" color="green" opacity=".2" ></a-obj-model>
+			<a-obj-model src="#edge-bottom-22" position="0 1 -2" color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;" ></a-obj-model>
 			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
 		</a-entity>
 
 		<a-entity>
-			<a-obj-model src="#edge-bottom-23" position="0 1 -2" color="green" opacity=".2" ></a-obj-model>
+			<a-obj-model src="#edge-bottom-23" position="0 1 -2" color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;" ></a-obj-model>
 			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
 		</a-entity>
 
 
 <!-- ROW 1 -->
 		<a-entity>
-			<a-obj-model src="#row-one-1" position="0 1 -2" color="red" opacity=".2" ></a-obj-model>
+			<a-obj-model src="#row-one-1" position="0 1 -2" color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;"></a-obj-model>
 			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
 		</a-entity>
 
 		<a-entity>
-			<a-obj-model src="#row-one-2" position="0 1 -2" color="blue" opacity=".2" ></a-obj-model>
+			<a-obj-model src="#row-one-2" position="0 1 -2" color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;" ></a-obj-model>
 			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
 		</a-entity>
 
 		<a-entity>
-			<a-obj-model src="#row-one-3" position="0 1 -2" color="blue" opacity=".2" ></a-obj-model>
+			<a-obj-model src="#row-one-3" position="0 1 -2" color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;" ></a-obj-model>
 			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
 		</a-entity>
 
 		<a-entity>
-			<a-obj-model src="#row-one-4" position="0 1 -2" color="blue" opacity=".2" ></a-obj-model>
+			<a-obj-model src="#row-one-4" position="0 1 -2" color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;" ></a-obj-model>
 			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
 		</a-entity>
 
 		<a-entity>
-			<a-obj-model src="#row-one-5" position="0 1 -2" color="blue" opacity=".2" ></a-obj-model>
+			<a-obj-model src="#row-one-5" position="0 1 -2" color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;" ></a-obj-model>
 			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
 		</a-entity>
 
 		<a-entity>
-			<a-obj-model src="#row-one-6" position="0 1 -2" color="blue" opacity=".2" ></a-obj-model>
+			<a-obj-model src="#row-one-6" position="0 1 -2" color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;" ></a-obj-model>
 			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
 		</a-entity>
 
 		<a-entity>
-			<a-obj-model src="#row-one-7" position="0 1 -2" color="blue" opacity=".2" ></a-obj-model>
+			<a-obj-model src="#row-one-7" position="0 1 -2" color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;" ></a-obj-model>
 			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
 		</a-entity>
 
 		<a-entity>
-			<a-obj-model src="#row-one-8" position="0 1 -2" color="blue" opacity=".2" ></a-obj-model>
+			<a-obj-model src="#row-one-8" position="0 1 -2" color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;" ></a-obj-model>
 			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
 		</a-entity>
 
 		<a-entity>
-			<a-obj-model src="#row-one-9" position="0 1 -2" color="blue" opacity=".2" ></a-obj-model>
+			<a-obj-model src="#row-one-9" position="0 1 -2" color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;" ></a-obj-model>
 			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
 		</a-entity>
 
 		<a-entity>
-			<a-obj-model src="#row-one-10" position="0 1 -2" color="black" opacity=".2" ></a-obj-model>
+			<a-obj-model src="#row-one-10" position="0 1 -2" color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;" ></a-obj-model>
 			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
 		</a-entity>
 
 		<a-entity>
-			<a-obj-model src="#row-one-11" position="0 1 -2" color="blue" opacity=".2" ></a-obj-model>
+			<a-obj-model src="#row-one-11" position="0 1 -2" color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;" ></a-obj-model>
 			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
 		</a-entity>
 
 		<a-entity>
-			<a-obj-model src="#row-one-12" position="0 1 -2" color="blue" opacity=".2" ></a-obj-model>
+			<a-obj-model src="#row-one-12" position="0 1 -2" color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;" ></a-obj-model>
 			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
 		</a-entity>
 
 		<a-entity>
-			<a-obj-model src="#row-one-13" position="0 1 -2" color="blue" opacity=".2" ></a-obj-model>
+			<a-obj-model src="#row-one-13" position="0 1 -2" color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;" ></a-obj-model>
 			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
 		</a-entity>
 
 		<a-entity>
-			<a-obj-model src="#row-one-14" position="0 1 -2" color="blue" opacity=".2" ></a-obj-model>
+			<a-obj-model src="#row-one-14" position="0 1 -2" color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;" ></a-obj-model>
 			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
 		</a-entity>
 
 		<a-entity>
-			<a-obj-model src="#row-one-15" position="0 1 -2" color="blue" opacity=".2" ></a-obj-model>
+			<a-obj-model src="#row-one-15" position="0 1 -2" color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;" ></a-obj-model>
 			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
 		</a-entity>
 
 		<a-entity>
-			<a-obj-model src="#row-one-16" position="0 1 -2" color="blue" opacity=".2" ></a-obj-model>
+			<a-obj-model src="#row-one-16" position="0 1 -2" color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;" ></a-obj-model>
 			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
 		</a-entity>
 
 		<a-entity>
-			<a-obj-model src="#row-one-17" position="0 1 -2" color="blue" opacity=".2" ></a-obj-model>
+			<a-obj-model src="#row-one-17" position="0 1 -2" color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;" ></a-obj-model>
 			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
 		</a-entity>
 
 		<a-entity>
-			<a-obj-model src="#row-one-18" position="0 1 -2" color="blue" opacity=".2" ></a-obj-model>
+			<a-obj-model src="#row-one-18" position="0 1 -2" color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;" ></a-obj-model>
 			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
 		</a-entity>
 
 		<a-entity>
-			<a-obj-model src="#row-one-19" position="0 1 -2" color="blue" opacity=".2" ></a-obj-model>
+			<a-obj-model src="#row-one-19" position="0 1 -2" color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;" ></a-obj-model>
 			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
 		</a-entity>
 
 		<a-entity>
-			<a-obj-model src="#row-one-21" position="0 1 -2" color="blue" opacity=".2" ></a-obj-model>
+			<a-obj-model src="#row-one-21" position="0 1 -2" color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;" ></a-obj-model>
 			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
 		</a-entity>
 
 		<a-entity>
-			<a-obj-model src="#row-one-23" position="0 1 -2" color="black" opacity=".2" ></a-obj-model>
+			<a-obj-model src="#row-one-23" position="0 1 -2" color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;" ></a-obj-model>
 			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
 		</a-entity>
 
 		<a-entity>
-			<a-obj-model src="#row-one-24" position="0 1 -2" color="blue" opacity=".2" ></a-obj-model>
+			<a-obj-model src="#row-one-24" position="0 1 -2" color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;" ></a-obj-model>
+			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
+		</a-entity>
+<!-- ROW TWO -->
+		<a-entity id="row-two" >
+			<a-obj-model src="#row-two-1" position="0 1 -2" material="src:#eye-2;" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;" ></a-obj-model>
+			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
+		</a-entity>
+
+		<a-entity>
+			<a-obj-model src="#row-two-2" position="0 1 -2" color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;" ></a-obj-model>
+			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
+		</a-entity>
+
+		<a-entity>
+			<a-obj-model src="#row-two-3" position="0 1 -2" color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;" ></a-obj-model>
+			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
+		</a-entity>
+
+		<a-entity>
+			<a-obj-model src="#row-two-4" position="0 1 -2"  color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;" ></a-obj-model>
+			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
+		</a-entity>
+
+		<a-entity>
+			<a-obj-model src="#row-two-5" position="0 1 -2"  color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;"></a-obj-model>
+			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
+		</a-entity>
+
+		<a-entity>
+			<a-obj-model src="#row-two-6" position="0 1 -2" color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;" ></a-obj-model>
+			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
+		</a-entity>
+
+		<a-entity>
+			<a-obj-model src="#row-two-7" position="0 1 -2" color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;" ></a-obj-model>
+			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
+		</a-entity>
+
+		<a-entity>
+			<a-obj-model src="#row-two-8" position="0 1 -2" color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;" ></a-obj-model>
+			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
+		</a-entity>
+
+		<a-entity>
+			<a-obj-model src="#row-two-9" position="0 1 -2" color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;" ></a-obj-model>
+			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
+		</a-entity>
+
+		<a-entity>
+			<a-obj-model src="#row-two-10" position="0 1 -2"  color="black"  opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;"></a-obj-model>
+			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
+		</a-entity>
+
+		<a-entity>
+			<a-obj-model src="#row-two-11" position="0 1 -2"  color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;"></a-obj-model>
+			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
+		</a-entity>
+
+		<a-entity>
+			<a-obj-model src="#row-two-12" position="0 1 -2" color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;" ></a-obj-model>
+			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
+		</a-entity>
+
+		<a-entity>
+			<a-obj-model src="#row-two-13" position="0 1 -2" color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;"></a-obj-model>
+			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
+		</a-entity>
+
+		<a-entity>
+			<a-obj-model src="#row-two-14" position="0 1 -2"  color="black"  opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;"></a-obj-model>
+			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
+		</a-entity>
+
+		<a-entity>
+			<a-obj-model src="#row-two-15" position="0 1 -2" color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;" ></a-obj-model>
+			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
+		</a-entity>
+
+		<a-entity>
+			<a-obj-model src="#row-two-16" position="0 1 -2" color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;" ></a-obj-model>
+			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
+		</a-entity>
+
+		<a-entity>
+			<a-obj-model src="#row-two-17" position="0 1 -2" color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;" ></a-obj-model>
+			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
+		</a-entity>
+
+		<a-entity>
+			<a-obj-model src="#row-two-18" position="0 1 -2" color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;" ></a-obj-model>
+			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
+		</a-entity>
+
+		<a-entity>
+			<a-obj-model src="#row-two-19" position="0 1 -2" color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;" ></a-obj-model>
+			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
+		</a-entity>
+
+		<a-entity>
+			<a-obj-model src="#row-two-20" position="0 1 -2" color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;" ></a-obj-model>
+			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
+		</a-entity>
+
+		<a-entity>
+			<a-obj-model src="#row-two-21" position="0 1 -2" color="black" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;" ></a-obj-model>
+			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
+		</a-entity>
+
+		<a-entity>
+			<a-obj-model src="#row-two-22" position="0 1 -2" material="src:#eye-1;" opacity=".1" event-set__enter="_delay:1800; _event:mouseenter; mixin:fade-2;" ></a-obj-model>
 			<a-animation attribute="rotation" dur="3000" to="0 360 0" direction="alternate" begin="mouseenter"></a-animation>
 		</a-entity>
 
