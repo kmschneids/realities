@@ -7,6 +7,7 @@
 <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script> 
     <script src="https://rawgit.com/mayognaise/aframe-gif-component/master/dist/aframe-gif-component.min.js"></script>
 <meta charset="utf-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
 </head>
 <body style='margin : 0px; overflow: hidden;'>
 	<a-scene embedded arjs='sourceType: webcam;'>
@@ -26,7 +27,7 @@
 	     	<a-box position="0 5 3" material="opacity: 0.5; height: 5; width: 4; src:#cloud; side: double" geometry="depth: 0.01"></a-box>
 		</a-entity> -->
 
-		<a-video id="mp4-blob" src="#blob-man-flop" height="6" width="6" position="0 -1" material="side:double; opacity:.6;" rotation="-90"></a-video>
+		<a-video playsinline id="mp4-blob" src="#blob-man-flop" height="6" width="6" position="0 -1" material="side:double; opacity:.6;" rotation="-90"></a-video>
 
 		<!-- <a-plane height="3" width="6" position="0 -1" material="shader:gif; src:#blob-man-gif; side:double; opacity:.6;" rotation="-90"></a-plane> -->
 
