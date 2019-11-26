@@ -2,7 +2,10 @@
 <html>
 <head>
 	<script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
-	<script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script><script src="https://rawgit.com/mayognaise/aframe-gif-component/master/dist/aframe-gif-component.min.js"></script>
+
+	<!-- <script src="https://rawgit.com/mayognaise/aframe-gif-component/master/dist/aframe-gif-component.min.js"></script> -->
+	<script src="gif-shader.js"></script>
+	<script src="gif_component.js"></script>
 	<!-- <meta name="mobile-web-app-capable" content="yes"> -->
 
 	<title>ok</title>
@@ -31,13 +34,13 @@
 		function togglePlayback(id) { document.getElementById(id).components.gif.togglePlayback() }
 	</script> -->
 
-	<script>
+	<!-- <script>
 		__draw: function __draw() { 
 			this.__clearCanvas(); 
 			this.__ctx.drawImage(this.__frames[this.__frameIdx], 0, 0, this.__width, this.__height); 
 			this.__texture.needsUpdate = true; 
 		}
-	</script>
+	</script> -->
 
 </body>
 </html>
