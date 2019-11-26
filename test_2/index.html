@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
+	<script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script><script src="https://rawgit.com/mayognaise/aframe-gif-component/master/dist/aframe-gif-component.min.js"></script>
+	<!-- <meta name="mobile-web-app-capable" content="yes"> -->
+
+	<title>ok</title>
+</head>
+<body>
+	<a-scene>
+		<a-assets>
+			<img id="blob" src="videos/blob_1.gif">
+			<img id="blob-2" src="videos/blob.gif">
+			<img id="blob-1" src="videos/blob_2_300_px.gif">
+		</a-assets>
+		
+	<!-- CAMERA -->
+	<a-entity id="camera">
+		<a-camera rotation="0 0 0" position="0 0 0"><a-entity id="cursor" color="red" cursor="rayOrigin:cursor; fuse:false; fuseTimeout: 500" position="0 0 -1" geometry="primitive:ring; radiusInner: 0.01; radiusOuter: 0.015" material="color:blue;"></a-entity>
+	</a-entity>
+
+	<!-- <a-entity geometry="primitive: plane" position="0 1.5 -2" material="shader:gif; src:#blob-guy-gif; alphaTest:.5; side: double;"></a-entity> -->
+
+	 <a-entity position="0 1 -2" scale="2 2 2" rotation="0 30 0" geometry="primitive: plane;" material="src:#blob; shader:gif; side:double; alphaTest:0.5;"></a-entity>
+
+	<a-box position="0 0 -20" color="red"></a-box>
+	<a-sky color="grey"></a-sky>
+	</a-scene>
+	<!-- <script>
+		function togglePlayback(id) { document.getElementById(id).components.gif.togglePlayback() }
+	</script> -->
+
+	<script>
+		__draw: function __draw() { 
+			this.__clearCanvas(); 
+			this.__ctx.drawImage(this.__frames[this.__frameIdx], 0, 0, this.__width, this.__height); 
+			this.__texture.needsUpdate = true; 
+		}
+	</script>
+
+</body>
+</html>
