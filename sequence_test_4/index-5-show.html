@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>test 5 show, custom marker</title>
+	<script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
+	<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.0/aframe/build/aframe-ar.js"></script>
+</head>
+<body style='margin : 0px; overflow: hidden;'>
+	<a-scene embedded arjs='sourceType: webcam;'>
+		<a-assets>
+			<img id="pole-1" src="images/pole/0.png">
+			<img id="pole-4" src="images/pole/3.png">
+			<img id="stairs-1" src="images/stairs/0.png">
+			<img id="stairs-2" src="images/stairs/1.png">
+			<img id="tree-1" src="images/tree/0.png">
+			<img id="tree-2" src="images/tree/1.png">
+			<img id="disapproval-1" src="images/disapproval/0.png">
+			<img id="disapproval-2" src="images/disapproval/1.png">
+
+
+		</a-assets>
+
+		<a-marker-camera type='pattern' url='pattern-blob_man.patt' ></a-marker-camera>
+		<!-- type='pattern' patternUrl='pattern-blob_man.patt' -->
+
+		<!-- CAMERA -->
+		<!-- <a-entity id="camera">
+			<a-camera rotation="0 0 0" position="0 0 0"><a-entity id="cursor" cursor="rayOrigin:cursor; fuse:false; fuseTimeout: 500" position="0 0 -1" geometry="primitive:ring; radiusInner: 0.01; radiusOuter: 0.015" material="color:blue;"></a-entity>
+		</a-entity> -->
+		<!-- <a-plane id="marker" color="red" rotation="-90"position="0 -1 0"></a-plane> -->
+
+<!-- Pole -->
+		<a-plane id="pole" scale="0.7 0.7 0.7" rotation="-90 0" src="#pole-1" height="4" width="4" opacity=".9" position="-1.886 0 1.072"></a-plane>
+		<a-plane id="pole" scale=".7 .7 .7" rotation="-90" src="#pole-4" height="4" width="4" opacity=".0" position="-1.886 0 1.072" animation="property:opacity; to:.9; dur:1000; loop:true; dir:alternate;"></a-plane>
+
+<!-- Stairs -->
+
+
+		<a-plane scale=".5 .5 .5" id="stairs" rotation="-90" src="#stairs-1" height="4" width="4" opacity=".9" position="-6.233 0 0.76" animation="property:opacity; to:.0; dur:1000; loop:true; dir:alternate;"></a-plane>
+
+		<a-plane scale=".5 .5 .5" id="stairs" rotation="-90" src="#stairs-2" height="4" width="4" opacity=".0" position="-6.233 0 0.76" animation="property:opacity; to:.9; dur:1000; loop:true; dir:alternate;"></a-plane>
+
+<!-- Tree -->
+		<!-- <a-plane visible="false" id="tree" rotation="-90" src="#tree-1" height="4" width="4" opacity=".9" position="1 0 0"></a-plane>
+
+		<a-plane visible="false" id="tree" rotation="-90" src="#tree-2" height="4" width="4" opacity=".0" position="1 0 0" animation__fade="property:opacity; to:.9; dur:1000; loop:true; dir:alternate;"></a-plane> -->
+
+<!-- disapproval -->
+		<a-plane id="disapproval" scale="1.2 1.2 1.2" rotation="-90 0" src="#disapproval-1" height="4" width="4" opacity=".9" position="3.197 0 1.129"></a-plane>
+		<a-plane id="disapproval" scale="1.2 1.2 1.2" rotation="-90" src="#disapproval-2" height="4" width="4" opacity=".0" position="3.197 0 1.129" animation__fade="property:opacity; to:.9; dur:1000; loop:true; dir:alternate;"></a-plane>
+	</a-scene>
+
+</body>
+</html>
